@@ -7,4 +7,5 @@ angular.module('blogList').
 
             $scope.items = Post.query();
 
+        }
     });
