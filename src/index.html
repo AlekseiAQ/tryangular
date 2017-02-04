@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='try'>
   <head>
+    <base href="/">
     <meta charset="utf-8">
     <meta name"viewport" content="width=device-width, initial-scale=1">
     <title>Try Angular 1.6</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-    <script src="./js/app/app.module.js"></script>
-    <script src="./js/app/app.config.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
 
-    <script src="./js/app/blog-list/blog-list.module.js"></script>
-    <script src="./js/app/blog-list/blog-list.component.js"></script>
+    <script src="/js/app/app.module.js"></script>
+    <script src="/js/app/app.config.js"></script>
+
+    <script src="/js/app/blog-list/blog-list.module.js"></script>
+    <script src="/js/app/blog-list/blog-list.component.js"></script>
   </head>
   <style media="screen">
     .new-class {
@@ -23,6 +27,8 @@
     }
   </style>
   <body>
-      <blog-list></blog-list>
+      <div ng-view>
+
+      </div>
   </body>
 </html>
