@@ -6,18 +6,24 @@ angular.module('blogDetail').
         controller: function(Post, $http, $location, $routeParams, $scope){
             Post.query(function(data){
                 $scope.notFound = true
+                $scope.comments = []
                 angular.forEach(data, function(post){
                     if (post.id == $routeParams.id){
                         $scope.notFound = false
                         $scope.post = post
+                        if (post.comments) {
+                            $scope.comments = post.comments
+                        }
                         resetReply()
                     }
                 })
             })
 
+
+
             $scope.deleteComment = function(comment) {
                 $scope.$apply(
-                    $scope.post.comments.splice(comment, 1)
+                    $scope.comments.splice(comment, 1)
                 )
                 // someResource.$delete()
             }
@@ -25,14 +31,14 @@ angular.module('blogDetail').
 
             $scope.addReply = function() {
                 console.log($scope.reply)
-                $scope.post.comments.push($scope.reply)
-                // $scope.post.comments.push("abc")
+                $scope.comments.push($scope.reply)
+                // $scope.comments.push("abc")
                 resetReply()
             }
 
             function resetReply(){
                 $scope.reply = {
-                    "id": $scope.post.comments.length + 1,
+                    "id": $scope.comments.length + 1,
                     "text": "",
                 }
             }
